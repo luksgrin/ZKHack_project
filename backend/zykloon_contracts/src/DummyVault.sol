@@ -28,7 +28,7 @@ contract DummyVault {
         _;
     }
 
-    constructor(bytes16) {}
+    constructor(bytes16 appId) {}
 
     function deposit() external payable onlyValue {
         if (_epochFinished()) {
