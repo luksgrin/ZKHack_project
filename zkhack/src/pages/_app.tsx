@@ -11,7 +11,8 @@ import { chains, client, walletConnectProjectId } from '../wagmi'
 import '../css/style.css'
 
 import Header from '../components/Header'
-import HeaderImage from '../public/zykloon.png'
+import Body from "../components/Body"
+
 
 
 const ethereumClient = new EthereumClient(client, chains)
@@ -22,22 +23,22 @@ function App({ Component, pageProps }: AppProps) {
   return (
 
     <>
-    <Header/>
+      <Header/>
+  
+      <WagmiConfig client={client}>
+        <NextHead>
+          <title>ZyKloon</title>
+        </NextHead>
+        {mounted && <Component {...pageProps} />}
+        <Web3Modal
+          projectId={walletConnectProjectId}
+          ethereumClient={ethereumClient}
+        />
+      </WagmiConfig>
 
-    <WagmiConfig client={client}>
-      <NextHead>
-        <title>ZyKloon</title>
-      </NextHead>
+      <Body/>
 
-      {mounted && <Component {...pageProps} />}
-
-      <Web3Modal
-        projectId={walletConnectProjectId}
-        ethereumClient={ethereumClient}
-      />
-    </WagmiConfig>
-
-  </>
+    </>
 
   )
 }
