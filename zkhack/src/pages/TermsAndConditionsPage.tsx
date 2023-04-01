@@ -32,13 +32,21 @@ const TermsAndConditionsPage = () => {
   return (
     <div className="TermsAndConditions">
       <h1>Terms and Conditions</h1>
-      <select value={selectedLanguage} onChange={handleLanguageChange}>
-        {languageOptions.map(({ label, value }) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
-      </select>
+      <label for="standard-select">Choose Language</label>
+      <div className="select">
+        <select
+          id="standard-select"
+          value={selectedLanguage}
+          onChange={handleLanguageChange}
+        >
+          {languageOptions.map(({ label, value }) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div>{termsAndConditionsText()}</div>
     </div>
   );

@@ -33,7 +33,7 @@ function App({ Component, pageProps }: AppProps) {
           ethereumClient={ethereumClient}
         />
       </WagmiConfig>
-
+      <div className="Spacer_Footer"></div>
       <Footer />
     </>
   );
