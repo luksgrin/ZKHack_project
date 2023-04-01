@@ -7,24 +7,27 @@ import secondImage from '../public/zykloon.png';
 const Body = () => {
   return (
     <div className="page-body">
-      <div className="container">
+        Hello
+      <div className="Bodycontainer">
         <div className="image-container">
           <Image src={firstImage} alt="First Image" width={400} height={400} />
         </div>
         <div className="text-container">
-          <h2>First Text</h2>
-          <p>Lorem ipssum</p>
+          <h2>Privacy Layer using Sismo vaults</h2>
+          <p>Sismo’s Data Vault stores a user’s encrypted personal data irrespective of its origin.</p>
         </div>
       </div>
-      <div className="container">
-        <div className="text-container">
-          <h2>Second Text</h2>
-          <p>Lorem ipsum</p>
+      
+      <div className="Bodycontainer">
+        <div className="text-container2">
+          <h2>Improving Transaction Privacy</h2>
+          <p>transaction privacy by breaking the on-chain link between source  <br/>and destination addresses.</p>
         </div>
-        <div className="image-container">
+        <div className="image-container2">
           <Image src={secondImage} alt="Second Image" width={400} height={400} />
         </div>
       </div>
+
     </div>
   )
 }
