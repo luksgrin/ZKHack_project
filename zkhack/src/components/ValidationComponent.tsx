@@ -15,6 +15,7 @@ export function ValidationComponent() {
   const { address } = useAccount();
   const { data: ensName } = useEnsName({ address });
   const [destination, setDestination] = React.useState("0");
+  const [zkconnected, setZKConnect] = React.useState(false);
 
   const callValidation = (num: number, e: any) => {
     console.log("lmao", num);
@@ -22,8 +23,17 @@ export function ValidationComponent() {
     console.log("lmao e", e.target.value);
     console.log(destination);
   };
-  return (
-    <div className="ZyCloone_ValidationContainer">
+
+  const SismoBox = () => {
+    return (
+      <div className="ZyCloone_ButtonContainer">
+        <SismoButton />
+      </div>
+    );
+  };
+
+  const SwitchBox = () => {
+    return (
       <div className="ZyCloone_SwitchBox">
         {/* <SwitchComponent parentFunction={(num: any) => callValidation(num)} /> */}
         <FormControl className="Checkboxes_AmountETH">
@@ -66,9 +76,19 @@ export function ValidationComponent() {
         </div>
         {/* <Radio onChange={(e: any, num: any) => callValidation(num)}></Radio> */}
       </div>
-      <div className="ZyCloone_ButtonContainer">
-        <SismoButton />
-      </div>
+    );
+  };
+
+  return (
+    <div className="ZyCloone_ValidationContainer">
+      <button
+        className="btn Button_Test"
+        onClick={() => setZKConnect(!zkconnected)}
+      >
+        change
+      </button>
+
+      {zkconnected ? SwitchBox() : SismoBox()}
     </div>
   );
 }
