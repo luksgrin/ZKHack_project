@@ -133,4 +133,18 @@ body {
     color: #888;
   }
   
-  
+/* TERMS AND CONDITIONS */
+.TermsAndConditions {
+  color: rgb(0, 0, 0);
+  background-color: white;
+  border: 1px solid white;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.TermsAndConditions h1 {
+
+}
