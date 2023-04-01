@@ -7,15 +7,26 @@ import { WagmiConfig } from 'wagmi'
 
 import { chains, client, walletConnectProjectId } from '../wagmi'
 
+// OUR COMPONENTS
+import '../css/style.css'
+
+import Header from '../components/Header'
+import HeaderImage from '../public/zykloon.png'
+
+
 const ethereumClient = new EthereumClient(client, chains)
 
 function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => setMounted(true), [])
   return (
+
+    <>
+    <Header/>
+
     <WagmiConfig client={client}>
       <NextHead>
-        <title>wagmi</title>
+        <title>ZyKloon</title>
       </NextHead>
 
       {mounted && <Component {...pageProps} />}
@@ -25,6 +36,9 @@ function App({ Component, pageProps }: AppProps) {
         ethereumClient={ethereumClient}
       />
     </WagmiConfig>
+
+  </>
+
   )
 }
 
