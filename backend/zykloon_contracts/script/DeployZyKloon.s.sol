@@ -13,7 +13,7 @@ contract DeployZykloon is Script {
 
         vm.startBroadcast(deployerPrivateKey);
 
-        ZyKloonVault nft = new ZyKloonVault({
+        ZyKloonVault vault = new ZyKloonVault({
             appId: APP_ID
         });
 
