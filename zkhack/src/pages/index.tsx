@@ -12,14 +12,10 @@ function Page() {
   return (
     <>
     
-    <LaunchAppBtn/>
+      <LaunchAppBtn/>
 
-    <Body/>
+      <Body/>
     </>
-
-
-
-    
 
   )
 }
