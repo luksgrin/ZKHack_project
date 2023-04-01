@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.14;
+pragma solidity ^0.8.17;
 
 import "zk-connect-solidity/SismoLib.sol";
 import "solmate/auth/Owned.sol";
