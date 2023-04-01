@@ -16,7 +16,7 @@ import {ethers} from "ethers";
 const MUMBAI_TESTNET_RPC = "https://matic-mumbai.chainstacklabs.com";
 
 const generator: GroupGenerator = {
-  generationFrequency: GenerationFrequency.Weekly,
+  generationFrequency: GenerationFrequency.Weekly, // Daily
 
   generate: async (context: GenerationContext): Promise<GroupWithData[]> => {
 
@@ -38,7 +38,7 @@ const generator: GroupGenerator = {
 
     const depositEvents = await ZykloonContract.queryFilter(
         ZykloonContract.filters.Deposit(),
-        latest_block - 44800, // 1 week in blocks, given 12s block time
+        latest_block - 44800, // 1 week in blocks, given 13.5s block time
         latest_block 
     );
 
