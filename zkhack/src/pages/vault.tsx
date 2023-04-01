@@ -20,14 +20,18 @@ function Page() {
   return (
     <>
       <div className="ZyCloone_Container">
-        {/* {checkValidation() ? (
+        {/* 
+        {checkValidation() ? (
           <TransactionsComponent />
-        ) : ( */}
+        ) : ( 
+        */}
+
         <ValidationComponent />
-        {/* )} */}
+       
       </div>
 
-      {/* <button
+      {/* 
+      <button
         onClick={() => {
           console.log("LMAO", validated);
           setValidated(!validated);
@@ -35,11 +39,14 @@ function Page() {
         }}
       >
         ChangeValidation
-      </button> */}
+      </button> 
+      */}
 
-      {/* <Web3Button /> */}
+      <div className="WalletConnectButton">
+        <Web3Button />
+      </div>
 
-      {/* {isConnected && <Account />} */}
+      {isConnected}  <Account/>
     </>
   );
 }
