@@ -26,30 +26,44 @@ export function ValidationComponent() {
     <div className="ZyCloone_ValidationContainer">
       <div className="ZyCloone_SwitchBox">
         {/* <SwitchComponent parentFunction={(num: any) => callValidation(num)} /> */}
-        <FormControl>
-          <FormLabel id="demo-controlled-radio-buttons-group">Gender</FormLabel>
+        <FormControl className="Checkboxes_AmountETH">
+          <FormLabel id="demo-controlled-radio-buttons-group">
+            Amount of eth
+          </FormLabel>
           <RadioGroup
+            row
             aria-labelledby="demo-controlled-radio-buttons-group"
             name="controlled-radio-buttons-group"
             // value={0.1}
             defaultValue="0.1"
             onChange={(e: any, num: any) => callValidation(num, e)}
           >
-            <FormControlLabel value="0.1" control={<Radio />} label="0.1 eth" />
-            <FormControlLabel value="1" control={<Radio />} label="1 eth" />
+            <FormControlLabel
+              value="0.1"
+              control={<Radio className="RadioButtonCustom" color="default" />}
+              label="0.1 eth"
+            />
+            <FormControlLabel
+              value="1"
+              control={<Radio className="RadioButtonCustom" color="default" />}
+              label="1 eth"
+            />
           </RadioGroup>
         </FormControl>
 
-        <TextField
-          id="outlined-basic"
-          label="Address"
-          variant="outlined"
-          onChange={(dest: any) =>
-            dest != null && dest.target != null
-              ? setDestination(dest.target.value)
-              : console.log("no valid target")
-          }
-        />
+        <div className="Trade_Destination_Container">
+          <TextField
+            className="Trade_Destination"
+            id="outlined-basic"
+            label="Destination"
+            variant="outlined"
+            onChange={(dest: any) =>
+              dest != null && dest.target != null
+                ? setDestination(dest.target.value)
+                : console.log("no valid target")
+            }
+          />
+        </div>
         {/* <Radio onChange={(e: any, num: any) => callValidation(num)}></Radio> */}
       </div>
       <div className="ZyCloone_ButtonContainer">
