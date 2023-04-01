@@ -158,42 +158,42 @@ p {
   border-color: #7fa9f5 !important;
 }
 .Trade_Destination_Container:hover * {
-  border-color: #7fa9f5 !important;  
-
+  border-color: #7fa9f5 !important;
+}
 .footer {
-    background-color: #f7f7f7;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer__nav {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .footer__list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .footer__item:not(:last-child) {
-    margin-right: 1rem;
-  }
-  
-  .footer__item a {
-    text-decoration: none;
-    color: #555;
-  }
-  
-  .footer__text {
-    font-size: 0.8rem;
-    color: #888;
-  }
-  
+  background-color: #f7f7f7;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__nav {
+  margin: 0;
+  padding: 0;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.footer__item a {
+  text-decoration: none;
+  color: #555;
+}
+
+.footer__text {
+  font-size: 0.8rem;
+  color: #888;
+}
+
 /* TERMS AND CONDITIONS */
 .TermsAndConditions {
   color: rgb(0, 0, 0);
