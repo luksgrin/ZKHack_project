@@ -4,7 +4,6 @@ pragma solidity ^0.8.17;
 import "zk-connect-solidity/SismoLib.sol";
 
 contract ZyKloonVault is ERC20, ZkConnect, Owned {
-
     uint256 constant DEPOSIT_AMOUNT = 1 ether;
 
     // the id of the group we want our users to be member of
@@ -15,6 +14,7 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
     ZkConnectRequestContent private zkConnectRequestContent;
 
     mapping(address => bool) public deposited;
+    mapping(uint => address) public nullifier;
 
     event Deposit(address indexed user);
 
@@ -30,7 +30,7 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
     }
 
     modifier hasDeposited() {
-        if (deposited[msg.sender]) {
+        if (hasDeposited[msg.sender]) {
             revert AlreadyDeposited();
         }
         _;
@@ -44,7 +44,7 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
     }
 
     function deposit() external payable hasDeposited onlyValue {
-        deposited[msg.sender] = true;
+        hasDeposited[msg.sender] = true;
         emit Deposit(msg.sender);
     }
 
@@ -64,8 +64,16 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
             responseBytes: zkConnectResponse,
             authRequest: buildAuth({authType: AuthType.ANON}),
             claimRequest: buildClaim({groupId: GROUP_ID}),
-            messageSignatureRequest: abi.encode(to)
+            messageSignatureRequest: abi.encode(to),
+            namespace: "Epoch" // Edit this to change after each epoch
         });
+
+        // nullify the deposit
+        uint256 userId = zkConnectVerifiedResult.verifiedAuths[0].userId;
+
+        require(!nullifier[userId], "ZyKloonVault: already withdrawn");
+
+        nullifier[userId] = true;
 
         // if the proof is valid, we mint the token to the address `to`
         // the tokenId is the anonymized userId of the user that claimed the token
@@ -73,13 +81,9 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
         // he will only be able to claim one token
         //uint256 tokenId = zkConnectVerifiedResult.verifiedAuths[0].userId;
         (bool success, ) = to.call{value: DEPOSIT_AMOUNT}();
-        
+
         if (!success) {
             revert TransferFailed();
         }
     }
-
-
-
-
 }
