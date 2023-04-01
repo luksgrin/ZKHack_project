@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -12,16 +12,14 @@ const Footer = () => {
           <li className="footer__item">
             <Link href="/vault"> Vault</Link>
           </li>
-          <li className="footer__item">
+          {/* <li className="footer__item">
             <a href="#">Link 3</a>
-          </li>
+          </li> */}
         </ul>
       </nav>
-      <div className="footer__text">
-        &copy; 2023 My Website.
-      </div>
+      <div className="footer__text">&copy; 2023 ZyKloone.</div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

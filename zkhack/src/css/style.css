@@ -50,7 +50,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   margin: auto;
-  margin-bottom: 200px;
+  margin-bottom: 2rem;
   text-decoration: none;
   transition: background-color 0.1s ease;
 }
@@ -223,6 +223,20 @@ p {
   margin-bottom: 0px;
 }
 
+@media screen and (max-width: 480px) {
+  .footer {
+    height: 70px;
+  }
+
+  .footer__list {
+    padding: 0;
+  }
+
+  .footer__text {
+    margin-right: 0 !important;
+  }
+}
+
 .button-charming {
   height: 3rem;
   /* border-radius: 0.rem; */
@@ -287,6 +301,18 @@ p {
 .footer__text {
   font-size: 0.8rem;
   color: #888;
+  margin-right: 4rem;
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Spacer_Footer {
+    margin-bottom: 6rem;
+  }
 }
 
 /* TERMS AND CONDITIONS */
