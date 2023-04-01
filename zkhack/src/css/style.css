@@ -6,7 +6,7 @@ body {
 
 /* HEADER  */
 .Header {
-  color: white;
+  color: #f1f6ff !important;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -39,7 +39,7 @@ body {
   width: 200px;
   height: 50px;
   background-color: rgb(57, 57, 209);
-  color: white;
+  color: #f1f6ff !important;
   border: none;
   border-radius: 5px;
   font-size: 18px;
@@ -66,9 +66,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 20px 0;
-  color: #f7f7f7;
+  color: #f7f7f7 !important;
   border: 1px solid white;
   border-radius: 10px;
+}
+
+.css-u4tvz2-MuiFormLabel-root {
+  color: #f7f7f7 !important;
 }
 
 .image-container,
@@ -97,7 +101,7 @@ p {
 
 /* FOOTER */
 
-/* david bullshit */
+/* d bullshit */
 .Transactions_Container {
   display: flex;
   flex-direction: row;
@@ -127,11 +131,39 @@ p {
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid #7fa9f5;
+  max-width: 50%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
 }
 
+@media screen and (max-width: 768px) {
+  .ZyCloone_Container {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ZyCloone_Container {
+    padding: 0.5rem;
+  }
+}
 .ZyCloone_SwitchBox {
   display: flex;
   flex-direction: column;
+}
+
+.ZyCloone_SwitchBox > div {
+  align-items: center;
+}
+
+.Trade_Destination_Container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Trade_Destination {
@@ -166,7 +198,58 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: -10px;
+
+  /* fixed menu */
+  position: fixed;
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
+
+.button-charming {
+  height: 3rem;
+  /* border-radius: 0.rem; */
+  padding: 0 2rem;
+  background: linear-gradient(
+    -45deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
+  background-size: 400%;
+  background-position: 90% 0;
+  color: #fff;
+  transition: background 0.8s;
+  border: none;
+}
+.button-charming:hover {
+  background-position: 185% 50%;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  min-height: 3rem;
+  transition: 0.5s ease;
+  max-width: 350px;
+  text-align: center;
+  justify-content: center;
+  min-width: 250px;
+}
+
+.Button_Test {
+  margin: 1rem !important;
+  display: flex;
+}
+
+/* end d */
 
 .footer__nav {
   margin: 0;
