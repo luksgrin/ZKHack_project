@@ -18,7 +18,7 @@ contract ZyKloonVault is ZkConnect, Owned {
     // it needs to match the requests made by the frontend to the Data Vault app
     ZkConnectRequestContent private zkConnectRequestContent;
 
-    mapping(address => bool) public hasDeposited;
+    mapping(uint => mapping(address => bool)) public hasDeposited;
     mapping(uint => mapping(uint => bool)) public nullifier;
 
     event Deposit(address indexed user);
@@ -48,10 +48,10 @@ contract ZyKloonVault is ZkConnect, Owned {
         if (_epochFinished()) {
             startNewEpoch();
         }
-        if (hasDeposited[msg.sender]) {
+        if (hasDeposited[currentEpoch][msg.sender]) {
             revert AlreadyDeposited();
         }
-        hasDeposited[msg.sender] = true;
+        hasDeposited[currentEpoch][msg.sender] = true;
         emit Deposit(msg.sender);
     }
 
