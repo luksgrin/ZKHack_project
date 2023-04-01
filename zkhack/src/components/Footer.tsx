@@ -6,7 +6,7 @@ const Footer = () => {
       <nav className="footer__nav">
         <ul className="footer__list">
           <li className="footer__item">
-            <Link href="/TermsAndConditions">Terms and Conditions</Link>
+            <Link href="/TermsAndConditionsPage">Terms and Conditions</Link>
           </li>
 
           <li className="footer__item">

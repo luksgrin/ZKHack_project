@@ -7,8 +7,7 @@ export function SismoButton() {
   const { data: ensName } = useEnsName({ address });
 
   return (
-    <div>
-      <button>sismo button TBD</button>
+    <div className="SismoContainerButton">
       <Home></Home>
     </div>
   );

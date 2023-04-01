@@ -8,7 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 
 export const zkConnectConfig: ZkConnectClientConfig = {
-  appId: "0x112a692a2005259c25f6094161007967",
+  appId: "0xad0038dcb4c955565d81cbb7eddc77e9",
   devMode: {
     // enable or disable dev mode here to create development groups and use the development vault.
     enabled: process.env.NEXT_PUBLIC_ENV_NAME === "LOCAL" ? true : false,
