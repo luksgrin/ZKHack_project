@@ -1,4 +1,6 @@
+import { ZkConnectButton } from "@sismo-core/zk-connect-react";
 import { useAccount, useEnsName } from "wagmi";
+import Home from "./ZKButton";
 
 export function SismoButton() {
   const { address } = useAccount();
@@ -7,6 +9,7 @@ export function SismoButton() {
   return (
     <div>
       <button>sismo button TBD</button>
+      <Home></Home>
     </div>
   );
 }

@@ -5,10 +5,13 @@ import { Account } from "../components";
 
 import { TransactionsComponent } from "../components/TransactionsComponent";
 import { ValidationComponent } from "../components/ValidationComponent";
+import React from "react";
+
+import Link from "next/link";
 
 function Page() {
   const { isConnected } = useAccount();
-  var validated = true;
+  const [validated, setValidated] = React.useState(false);
 
   const checkValidation = () => {
     return validated;
@@ -26,7 +29,9 @@ function Page() {
 
       <button
         onClick={() => {
-          validated = !validated;
+          console.log("LMAO", validated);
+          setValidated(!validated);
+          console.log("LMAO", validated);
         }}
       >
         ChangeValidation

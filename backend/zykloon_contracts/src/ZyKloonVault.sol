@@ -1,28 +1,34 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity 0.8.14;
 
 import "zk-connect-solidity/SismoLib.sol";
 import "solmate/auth/Owned.sol";
 
-contract ZyKloonVault is Owned {//ZkConnect, Owned {
-
+contract ZyKloonVault is ZkConnect, Owned {
     uint256 constant DEPOSIT_AMOUNT = 1 ether;
+    uint256 constant EPOCH_DURATION = 1 weeks;
 
     // the id of the group we want our users to be member of
     bytes16 public GROUP_ID;
+    uint256 public currentEpoch = 0;
+    uint256 public currentEpochStartTimestamp;
+
     // Object that contains the claim, auth and message signature requests
     // that was used for the proof generation in the Data Vault app
     // it needs to match the requests made by the frontend to the Data Vault app
     ZkConnectRequestContent private zkConnectRequestContent;
 
-    mapping(address => bool) public deposited;
-    mapping(uint => address) public nullifier;
+    mapping(uint => mapping(address => bool)) public hasDeposited;
+    mapping(uint => mapping(uint => bool)) public nullifier;
 
     event Deposit(address indexed user);
+    event Withdrawal(address indexed user);
+    event EpochStarted(uint256 epoch);
 
     error AlreadyDeposited();
     error WrongDepositAmount();
     error TransferFailed();
+    error EpochNotStarted(uint256 epoch);
 
     modifier onlyValue() {
         if (!(msg.value == DEPOSIT_AMOUNT)) {
@@ -32,7 +38,7 @@ contract ZyKloonVault is Owned {//ZkConnect, Owned {
     }
 
     modifier hasDeposited() {
-        if (deposited[msg.sender]) {
+        if (hasDeposited[msg.sender]) {
             revert AlreadyDeposited();
         }
         _;
@@ -47,8 +53,14 @@ contract ZyKloonVault is Owned {//ZkConnect, Owned {
         transferOwnership(address(0));
     }
 
-    function deposit() external payable hasDeposited onlyValue {
-        deposited[msg.sender] = true;
+    function deposit() external payable onlyValue {
+        if (_epochFinished()) {
+            startNewEpoch();
+        }
+        if (hasDeposited[currentEpoch][msg.sender]) {
+            revert AlreadyDeposited();
+        }
+        hasDeposited[currentEpoch][msg.sender] = true;
         emit Deposit(msg.sender);
     }
 
@@ -58,7 +70,15 @@ contract ZyKloonVault is Owned {//ZkConnect, Owned {
      * @param zkConnectResponse the zkConnect response from the Data Vault app in bytes
      * @param to the address to mint the token to
      */
-    /*function withdraw(bytes memory zkConnectResponse, address to) public {
+    function withdraw(
+        bytes memory zkConnectResponse,
+        address to,
+        uint epoch
+    ) public {
+        if (epoch > currentEpoch) {
+            revert EpochNotStarted(epoch);
+        }
+
         // the verify function will check that the zkConnectResponse proof is cryptographically valid
         // with respect to the auth, claim and message signature requests
         // i.e it checks that the user is member of the group with id GROUP_ID
@@ -69,15 +89,15 @@ contract ZyKloonVault is Owned {//ZkConnect, Owned {
             authRequest: buildAuth({authType: AuthType.ANON}),
             claimRequest: buildClaim({groupId: GROUP_ID}),
             messageSignatureRequest: abi.encode(to),
-            namespace: "Epoch" // Edit this to change after each epoch
+            namespace: uint256ToBytes16(currentEpoch) // Edit this to change after each epoch
         });
 
         // nullify the deposit
         uint256 userId = zkConnectVerifiedResult.verifiedAuths[0].userId;
 
-        require(!nullifier[userId], "ZyKloonVault: already withdrawn");
+        require(!nullifier[epoch][userId], "ZyKloonVault: already withdrawn");
 
-        nullifier[userId] = true;
+        nullifier[epoch][userId] = true;
 
         // if the proof is valid, we mint the token to the address `to`
         // the tokenId is the anonymized userId of the user that claimed the token
@@ -89,5 +109,29 @@ contract ZyKloonVault is Owned {//ZkConnect, Owned {
         if (!success) {
             revert TransferFailed();
         }
-    }*/
+        emit Withdrawal(to);
+    }
+
+    // internal function to start new epoch
+
+    function _epochFinished() internal view returns (bool) {
+        return block.timestamp >= currentEpochStartTimestamp + EPOCH_DURATION;
+    }
+
+    function startNewEpoch() public {
+        if (_epochFinished()) {
+            currentEpoch++;
+            currentEpochStartTimestamp = block.timestamp;
+            emit EpochStarted(currentEpoch);
+        }
+    }
+
+    function uint256ToBytes16(
+        uint256 value
+    ) public pure returns (bytes16 result) {
+        bytes memory temp = abi.encodePacked(value);
+        assembly {
+            result := mload(add(temp, 16))
+        }
+    }
 }
