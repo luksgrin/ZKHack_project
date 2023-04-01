@@ -14,9 +14,6 @@ const Header = () => {
             <Image src={HeaderImage} alt="My Image" className='HeaderImage'/>
           </Link>
         </div>
-        <div className='HeaderTitle'>
-            <p>Privacy preserving solutions</p>
-        </div>
     </div>
   )
 }

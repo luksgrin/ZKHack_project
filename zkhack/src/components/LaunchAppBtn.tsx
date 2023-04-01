@@ -2,7 +2,9 @@ import Link from 'next/link';
 
 const LaunchAppBtn = () => {
   return (
-    <Link href="/vault" className="LaunchAppBtn">Launch App</Link>
+    <div className='BtnTitle'>
+      <Link href="/vault" className="LaunchAppBtn">Launch App</Link>
+    </div>
   );
 }
 

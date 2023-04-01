@@ -32,7 +32,11 @@ body {
 }
 
 /* CONNECT WALLET BUTTON */
+
+
+
 .LaunchAppBtn {
+<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,6 +52,29 @@ body {
   margin: auto;
   margin-bottom: 200px;
 }
+=======
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(57, 57, 209);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 200px;
+    text-decoration: none;
+  }
+  
+  .LaunchAppBtn:hover {
+    background-color: #0055b3;
+  }
+  
+>>>>>>> c4814e8 (css styles)
 
 .LaunchAppBtn:hover {
   background-color: #0055b3;
