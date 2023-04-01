@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 contract DummyVault {
     uint256 constant DEPOSIT_AMOUNT = 1 ether;
-    uint256 constant EPOCH_DURATION = 1 weeks;
+    uint256 constant EPOCH_DURATION = 30 seconds;
 
     // the id of the group we want our users to be member of
     bytes16 public GROUP_ID;
@@ -28,7 +28,7 @@ contract DummyVault {
         _;
     }
 
-    constructor() {}
+    constructor(bytes16) {}
 
     function deposit() external payable onlyValue {
         if (_epochFinished()) {
