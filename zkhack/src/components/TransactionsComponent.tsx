@@ -1,4 +1,5 @@
 import { useAccount, useEnsName } from "wagmi";
+// import styles from "./Transactions.css";
 
 export function TransactionsComponent() {
   const { address } = useAccount();
