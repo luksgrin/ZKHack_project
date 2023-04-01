@@ -1,0 +1,121 @@
+body {
+    background-color: #13203E;
+}
+
+.Header {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    margin: auto;
+  }
+  
+  .HeaderImage {
+    width: 450px;
+    height: 260px;
+  }
+  
+.HeaderTitle{
+    font-size: 1.5em;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 20px;
+}
+
+
+.ButtonContainer{
+    width: 200px;
+    margin: auto;
+}
+
+  .ConnectWallet {
+    color: white;
+    width: 200px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+
+.page-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .image-container,
+  .text-container {
+    flex: 1;
+  }
+  
+  .image-container {
+    margin-right: 50px;
+  }
+  
+  .text-container {
+    margin-left: 50px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+
+  .footer {
+    background-color: #f7f7f7;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer__nav {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer__list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer__item:not(:last-child) {
+    margin-right: 1rem;
+  }
+  
+  .footer__item a {
+    text-decoration: none;
+    color: #555;
+  }
+  
+  .footer__text {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  

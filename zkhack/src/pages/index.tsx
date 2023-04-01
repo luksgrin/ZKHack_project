@@ -3,17 +3,18 @@ import { useAccount } from 'wagmi'
 
 import { Account } from '../components'
 
+
 function Page() {
   const { isConnected } = useAccount()
 
   return (
-    <>
-      <h1>wagmi + Web3Modal + asdasdNext.js</h1>
+    <div className='ButtonContainer'>    
+      <div className='ConnectWallet'>
+        <Web3Button />
+        {isConnected && <Account />}
+      </div>
+    </div>
 
-      <Web3Button />
-
-      {isConnected && <Account />}
-    </>
   )
 }
 
