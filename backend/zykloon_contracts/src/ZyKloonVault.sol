@@ -2,13 +2,14 @@
 pragma solidity ^0.8.17;
 
 import "zk-connect-solidity/SismoLib.sol";
+import "solmate/auth/Owned.sol";
 
-contract ZyKloonVault is ERC20, ZkConnect, Owned {
+contract ZyKloonVault is ZkConnect, Owned {
 
     uint256 constant DEPOSIT_AMOUNT = 1 ether;
 
     // the id of the group we want our users to be member of
-    bytes16 public group_id;
+    bytes16 public GROUP_ID;
     // Object that contains the claim, auth and message signature requests
     // that was used for the proof generation in the Data Vault app
     // it needs to match the requests made by the frontend to the Data Vault app
@@ -36,10 +37,10 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
         _;
     }
 
-    constructor() {}
+    constructor() Owned(msg.sender) ZkConnect(appId) {}
 
-    function setGroupID(bytes16 _group_id) onlyOwner {
-        group_id = _group_id;
+    function setGroupID(bytes16 _group_id) external onlyOwner {
+        GROUP_ID = _group_id;
         transferOwnership(address(0));
     }
 
@@ -72,7 +73,7 @@ contract ZyKloonVault is ERC20, ZkConnect, Owned {
         // if the user calls the claimWithZkConnect function multiple times
         // he will only be able to claim one token
         //uint256 tokenId = zkConnectVerifiedResult.verifiedAuths[0].userId;
-        (bool success, ) = to.call{value: DEPOSIT_AMOUNT}();
+        (bool success, ) = to.call{value: DEPOSIT_AMOUNT}("");
         
         if (!success) {
             revert TransferFailed();
