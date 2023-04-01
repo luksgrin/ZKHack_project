@@ -16,11 +16,13 @@ function Page() {
     //   </div>
     // </div>
     <>
-      <LaunchAppBtn />
+    
+      <LaunchAppBtn/>
 
-      <Body />
+      <Body/>
     </>
-  );
+
+  )
 }
 
 export default Page;

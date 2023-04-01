@@ -1,4 +1,4 @@
-import React from 'react'
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -6,8 +6,9 @@ const Footer = () => {
       <nav className="footer__nav">
         <ul className="footer__list">
           <li className="footer__item">
-            <a href="#">Link 1</a>
+            <Link href="/TermsAndConditions">Terms and Conditions</Link>
           </li>
+
           <li className="footer__item">
             <a href="#">Link 2</a>
           </li>
