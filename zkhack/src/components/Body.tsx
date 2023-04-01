@@ -7,7 +7,7 @@ import secondImage from '../public/zykloon.png';
 const Body = () => {
   return (
     <div className="page-body">
-        Hello
+         
       <div className="Bodycontainer">
         <div className="image-container">
           <Image src={firstImage} alt="First Image" width={400} height={400} />
