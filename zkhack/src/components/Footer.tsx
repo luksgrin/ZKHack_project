@@ -10,7 +10,7 @@ const Footer = () => {
           </li>
 
           <li className="footer__item">
-            <a href="#">Link 2</a>
+            <Link href="/vault"> Vault</Link>
           </li>
           <li className="footer__item">
             <a href="#">Link 3</a>
@@ -18,7 +18,7 @@ const Footer = () => {
         </ul>
       </nav>
       <div className="footer__text">
-        &copy; 2023 My Website. All rights reserved.
+        &copy; 2023 My Website.
       </div>
     </footer>
   )
