@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.14;
+pragma solidity ^0.8.14;
 
 import "zk-connect-solidity/SismoLib.sol";
 import "solmate/auth/Owned.sol";
@@ -37,16 +37,9 @@ contract ZyKloonVault is ZkConnect, Owned {
         _;
     }
 
-    modifier hasDeposited() {
-        if (hasDeposited[msg.sender]) {
-            revert AlreadyDeposited();
-        }
-        _;
-    }
-
     constructor(
         bytes16 appId // the appId of your zkConnect app (you need to register your zkConnect app on https://factory.sismo.io)
-    ) Owned(msg.sender) {}//ZkConnect(appId) {}
+    ) Owned(msg.sender) ZkConnect(appId) {}
 
     function setGroupID(bytes16 _group_id) external onlyOwner {
         GROUP_ID = _group_id;
