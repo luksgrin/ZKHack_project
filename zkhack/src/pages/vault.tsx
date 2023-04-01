@@ -7,6 +7,8 @@ import { TransactionsComponent } from "../components/TransactionsComponent";
 import { ValidationComponent } from "../components/ValidationComponent";
 import React from "react";
 
+import Link from "next/link";
+
 function Page() {
   const { isConnected } = useAccount();
   const [validated, setValidated] = React.useState(false);

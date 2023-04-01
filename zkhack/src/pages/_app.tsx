@@ -37,9 +37,9 @@ function App({ Component, pageProps }: AppProps) {
         />
       </WagmiConfig>
 
-      <Body/>
 
       <Footer/>
+    
 
     </>
 
