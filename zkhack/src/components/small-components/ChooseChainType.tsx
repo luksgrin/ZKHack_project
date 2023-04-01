@@ -6,8 +6,8 @@ import Box from "@mui/material/Box";
 
 interface TabPanelProps {
   children?: React.ReactNode;
-  index: number;
-  value: number;
+  index: any;
+  value: any;
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -30,19 +30,17 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
+function a11yProps(index: any) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
-export default function SwitchComponent(
-  parentFunction: (arg0: number) => void
-) {
+export default function BasicTabs(parentFunction: (arg0: any) => void) {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: any) => {
     setValue(newValue);
     parentFunction(newValue);
   };

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.17;
+pragma solidity 0.8.14;
 
 import "zk-connect-solidity/SismoLib.sol";
 import "solmate/auth/Owned.sol";
@@ -18,11 +18,11 @@ contract ZyKloonVault is ZkConnect, Owned {
     // it needs to match the requests made by the frontend to the Data Vault app
     ZkConnectRequestContent private zkConnectRequestContent;
 
-    mapping(address => bool) public deposited;
-    mapping(uint => mapping(uint => address)) public nullifier;
+    mapping(uint => mapping(address => bool)) public hasDeposited;
+    mapping(uint => mapping(uint => bool)) public nullifier;
 
     event Deposit(address indexed user);
-    event Withdraw(address indexed user);
+    event Withdrawal(address indexed user);
     event EpochStarted(uint256 epoch);
 
     error AlreadyDeposited();
@@ -46,12 +46,12 @@ contract ZyKloonVault is ZkConnect, Owned {
 
     function deposit() external payable onlyValue {
         if (_epochFinished()) {
-            _startEpoch();
+            startNewEpoch();
         }
-        if (hasDeposited[msg.sender]) {
+        if (hasDeposited[currentEpoch][msg.sender]) {
             revert AlreadyDeposited();
         }
-        hasDeposited[msg.sender] = true;
+        hasDeposited[currentEpoch][msg.sender] = true;
         emit Deposit(msg.sender);
     }
 
@@ -80,7 +80,7 @@ contract ZyKloonVault is ZkConnect, Owned {
             authRequest: buildAuth({authType: AuthType.ANON}),
             claimRequest: buildClaim({groupId: GROUP_ID}),
             messageSignatureRequest: abi.encode(to),
-            namespace: byte16(currentEpoch) // Edit this to change after each epoch
+            namespace: uint256ToBytes16(currentEpoch) // Edit this to change after each epoch
         });
 
         // nullify the deposit
@@ -113,7 +113,16 @@ contract ZyKloonVault is ZkConnect, Owned {
         if (_epochFinished()) {
             currentEpoch++;
             currentEpochStartTimestamp = block.timestamp;
-            emit EpochStarted(epoch);
+            emit EpochStarted(currentEpoch);
+        }
+    }
+
+    function uint256ToBytes16(
+        uint256 value
+    ) public pure returns (bytes16 result) {
+        bytes memory temp = abi.encodePacked(value);
+        assembly {
+            result := mload(add(temp, 16))
         }
     }
 }

@@ -1,0 +1,19 @@
+.Transactions_Container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.ZyCloone_WithdrawBox,
+.ZyCloone_DepositBox {
+  padding: 1rem;
+  margin: 1rem 0.5rem;
+}
+
+.ZyCloone_Data {
+  padding: 1rem 0.5rem;
+}
+
+.Data_Style {
+  line-height: 1.6;
+}
