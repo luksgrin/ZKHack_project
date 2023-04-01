@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "zk-connect-solidity/SismoLib.sol";
 import "solmate/auth/Owned.sol";
 
-contract ZyKloonVault is ZkConnect, Owned {
+contract ZyKloonVault is Owned {//ZkConnect, Owned {
 
     uint256 constant DEPOSIT_AMOUNT = 1 ether;
 
@@ -32,13 +32,15 @@ contract ZyKloonVault is ZkConnect, Owned {
     }
 
     modifier hasDeposited() {
-        if (hasDeposited[msg.sender]) {
+        if (deposited[msg.sender]) {
             revert AlreadyDeposited();
         }
         _;
     }
 
-    constructor() Owned(msg.sender) ZkConnect(appId) {}
+    constructor(
+        bytes16 appId // the appId of your zkConnect app (you need to register your zkConnect app on https://factory.sismo.io)
+    ) Owned(msg.sender) {}//ZkConnect(appId) {}
 
     function setGroupID(bytes16 _group_id) external onlyOwner {
         GROUP_ID = _group_id;
@@ -46,7 +48,7 @@ contract ZyKloonVault is ZkConnect, Owned {
     }
 
     function deposit() external payable hasDeposited onlyValue {
-        hasDeposited[msg.sender] = true;
+        deposited[msg.sender] = true;
         emit Deposit(msg.sender);
     }
 
@@ -56,7 +58,7 @@ contract ZyKloonVault is ZkConnect, Owned {
      * @param zkConnectResponse the zkConnect response from the Data Vault app in bytes
      * @param to the address to mint the token to
      */
-    function withdraw(bytes memory zkConnectResponse, address to) public {
+    /*function withdraw(bytes memory zkConnectResponse, address to) public {
         // the verify function will check that the zkConnectResponse proof is cryptographically valid
         // with respect to the auth, claim and message signature requests
         // i.e it checks that the user is member of the group with id GROUP_ID
@@ -87,5 +89,5 @@ contract ZyKloonVault is ZkConnect, Owned {
         if (!success) {
             revert TransferFailed();
         }
-    }
+    }*/
 }

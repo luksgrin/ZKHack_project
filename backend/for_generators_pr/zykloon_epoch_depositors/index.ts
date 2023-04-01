@@ -1,5 +1,4 @@
-import { dataOperators } from "@group-generators/helpers/data-operators";
-import { dataProviders } from "@group-generators/helpers/data-providers";
+import {JsonRpcProvider} from "@group-generators/helpers/data-providers/json-rpc/json-rpc";
 import {
   ValueType,
   Tags,
@@ -11,18 +10,43 @@ import {
   GenerationFrequency,
   GroupGenerator,
 } from "topics/group-generator";
+import {ethers} from "ethers";
+
+
+const MUMBAI_TESTNET_RPC = "https://matic-mumbai.chainstacklabs.com";
 
 const generator: GroupGenerator = {
-  generationFrequency: GenerationFrequency.Once,
+  generationFrequency: GenerationFrequency.Weekly,
 
   generate: async (context: GenerationContext): Promise<GroupWithData[]> => {
-    // 1. Instantiate the Lens provider
-    const lensProvider = new dataProviders.LensProvider();
-    // query all the collectors of the first Sismo Lens post
-    // https://lenster.xyz/posts/0x26e5-0x02
-    const zykloonDepositors: FetchedData = await lensProvider.getWhoCollectedPublication({
-      publicationId: "0x26e5-0x02",
-    });
+
+    const jsonRPCProvider = new JsonRpcProvider(MUMBAI_TESTNET_RPC);
+
+    // Zykloon contract address
+    const zykloonContractAddress = "";
+    const zykloonABI =[
+        "event Deposit(address indexed user)"
+    ];
+
+    const ZykloonContract = new ethers.Contract(
+        zykloonContractAddress,
+        zykloonABI,
+        jsonRPCProvider
+    );
+
+    const latest_block = await jsonRPCProvider.getBlockNumber()
+
+    const depositEvents = await ZykloonContract.queryFilter(
+        ZykloonContract.filters.Deposit(),
+        latest_block - 44800, // 1 week in blocks, given 12s block time
+        latest_block 
+    );
+
+    const zykloonDepositors: FetchedData = {};
+
+    for (const event of depositEvents) {
+        zykloonDepositors[event.args[0]] = 1;
+    }
 
     return [
       {
@@ -33,13 +57,9 @@ const generator: GroupGenerator = {
         description: "Deposit funds in zykloon contract within the specified epoch",
         // document the group eligibility criterias more specifically
         specs: "Deposit Ether in zykloon contract within the specified epoch",
-        // reference the final data we created
-          // two different data formats in the group
-          // Lens account -> "dhadrien.lens": "1"
-          // Ethereum account -> "0x95af97aBadA3b4ba443ff345437A5491eF332bC5": "1", 
         data: zykloonDepositors,
-        valueType: ValueType.Info,
-        tags: [Tags.User, Tags.Lens, Tags.Web3Social],
+        valueType: ValueType.Info, // ValueType.Score if we need to increment
+        tags: [Tags.User],
       },
     ];
   },
