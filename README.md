@@ -4,8 +4,8 @@
 
 *This project is meant to be used for educational purposes only.*
 
-> **Warning**
-> This is a warning
+> **Warning**.
+> Check out the [legal disclaimer](LEGAL_DISCLAIMER.md).
 
 # **ZyKloon**
 

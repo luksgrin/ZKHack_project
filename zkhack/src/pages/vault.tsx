@@ -81,7 +81,9 @@ function Page() {
         ChangeValidation
       </button> */}
 
-      {/* <Web3Button /> */}
+      <div className="WalletConnectButton ">
+        <Web3Button />
+      </div>
 
       {/* {isConnected && <Account />} */}
     </div>
