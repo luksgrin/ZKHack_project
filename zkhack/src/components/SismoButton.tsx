@@ -6,9 +6,5 @@ export function SismoButton() {
   const { address } = useAccount();
   const { data: ensName } = useEnsName({ address });
 
-  return (
-    <div className="SismoContainerButton">
-      <Home></Home>
-    </div>
-  );
+  return <Home></Home>;
 }

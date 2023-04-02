@@ -1,7 +1,7 @@
 
 import Image from 'next/image'
 
-import vault_addr from '../public/vault_addr.png';
+import vault_lol from '../public/vault_lol.png';
 import vaults from '../public/vaults.png';
 
 const Body = () => {
@@ -10,7 +10,7 @@ const Body = () => {
          
       <div className="Bodycontainer">
         <div className="image-container">
-          <Image src={vault_addr} alt="First Image" width={400} height={400} />
+          <Image src={vault_lol} alt="First Image" width={600} height={400} />
         </div>
         <div className="text-container">
           <h2>Privacy Layer using Sismo vaults</h2>
@@ -24,7 +24,7 @@ const Body = () => {
           <p>Transaction privacy by breaking the on-chain link between source  <br/>and destination addresses.</p>
         </div>
         <div className="image-container2">
-          <Image src={vaults} alt="Second Image" width={400} height={400} />
+          <Image src={vaults} alt="Second Image" width={600} height={400} />
         </div>
       </div>
 
