@@ -2,9 +2,9 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Script.sol";
-import "../src/ZyKloonVault.sol";
+import "../src/DummyVault.sol";
 
-contract DeployZykloon is Script {
+contract DeployDummy is Script {
 
     bytes16 immutable APP_ID = 0xad0038dcb4c955565d81cbb7eddc77e9;
 
@@ -13,7 +13,7 @@ contract DeployZykloon is Script {
 
         vm.startBroadcast(deployerPrivateKey);
 
-        ZyKloonVault vault = new ZyKloonVault({
+        DummyVault vault = new DummyVault({
             appId: APP_ID
         });
 

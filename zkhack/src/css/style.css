@@ -111,6 +111,10 @@ body {
   flex: 1;
 }
 
+.image-container img {
+  border-radius: 8px 0 0px 8px;
+}
+
 .image-container2 {
   margin-right: 30px;
 }

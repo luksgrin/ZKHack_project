@@ -1,4 +1,5 @@
-import {JsonRpcProvider} from "@group-generators/helpers/data-providers/json-rpc/json-rpc";
+import {ethers} from "ethers";
+import {JsonRpcProvider} from "@group-generators/helpers/data-providers/json-rpc";
 import {
   ValueType,
   Tags,
@@ -10,20 +11,19 @@ import {
   GenerationFrequency,
   GroupGenerator,
 } from "topics/group-generator";
-import {ethers} from "ethers";
 
 
-const MUMBAI_TESTNET_RPC = "https://matic-mumbai.chainstacklabs.com";
+const GOERLI_RPC = "https://goerli.blockpi.network/v1/rpc/public"; // Used a public RPC
 
 const generator: GroupGenerator = {
-  generationFrequency: GenerationFrequency.Weekly, // Daily
+  generationFrequency: GenerationFrequency.Weekly, // or Daily?
 
   generate: async (context: GenerationContext): Promise<GroupWithData[]> => {
 
-    const jsonRPCProvider = new JsonRpcProvider(MUMBAI_TESTNET_RPC);
+    const jsonRPCProvider = new JsonRpcProvider(GOERLI_RPC);
 
     // Zykloon contract address
-    const zykloonContractAddress = "";
+    const zykloonContractAddress = "0xe1581476e0a926C0fFC4e2E754C0bB82201378d7";
     const zykloonABI =[
         "event Deposit(address indexed user)"
     ];
@@ -38,7 +38,7 @@ const generator: GroupGenerator = {
 
     const depositEvents = await ZykloonContract.queryFilter(
         ZykloonContract.filters.Deposit(),
-        latest_block - 44800, // 1 week in blocks, given 13.5s block time
+        latest_block - 44800, // 1 week in blocks, given 13.5s block time. Too many blocks tho. Hard coding this to 1023 for now.
         latest_block 
     );
 
