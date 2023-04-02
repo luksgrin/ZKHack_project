@@ -203,9 +203,13 @@ p {
 
 .Sismo_Text {
   font-size: 24px;
+  padding-top: 20px;
 }
 
 .ZyCloone_Container.flex-item-right {
+
+  background-image: url("/src/public/logo.png");
+
 }
 .ZyCloone_Container.flex-item-right > a {
   height: 100%;
@@ -213,6 +217,7 @@ p {
   flex-direction: column;
   text-decoration: none !important;
   color: var(--fake-white) !important;
+  
 }
 
 .flex-item-right > .ZyCloone_Container {
@@ -290,7 +295,7 @@ a {
   margin-bottom: 0.5rem;
 }
 
-.flex-item-right > .ZyCloone_Container {
+.flex-item-right  .ZyCloone_Container {
   /* cursor: pointer; */
 }
 
@@ -786,7 +791,10 @@ h2 {
   margin: 0;
   min-height: 9rem;
   border-radius: 0 8px 8px 8px !important;
+  background: url("/src/public/logo.png");
 }
+
+
 
 .ZyCloone_ValidationContainer {
   width: 100%;
@@ -817,7 +825,7 @@ h2 {
   background-position: 90% 0;
 }
 
-.btn-change-mode: hover {
+.btn-change-mode:hover {
   background-position: 185% 50%;
   /* background: linear-gradient(
     -45deg,
