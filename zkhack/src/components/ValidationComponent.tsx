@@ -17,6 +17,7 @@ export function ValidationComponent() {
   const [destination, setDestination] = React.useState("0");
   const [mode, setMode] = React.useState(0);
   const [epoch, setEpoch] = React.useState("0");
+  const [sismo, setSismo] = React.useState("");
   const [zkconnected, setZKConnect] = React.useState(false);
   const [withdrawDepositMode, setWDMode] = React.useState(false);
 
@@ -147,6 +148,17 @@ export function ValidationComponent() {
             onChange={(epoch: any) =>
               epoch != null && epoch.target != null
                 ? setEpoch(epoch.target.value)
+                : console.log("no valid target")
+            }
+          />
+          <TextField
+            className="Trade_Destination Epoch"
+            id="outlined-basic"
+            label="Sismo Response"
+            variant="outlined"
+            onChange={(sismo: any) =>
+              sismo != null && sismo.target != null
+                ? setEpoch(sismo.target.value)
                 : console.log("no valid target")
             }
           />
