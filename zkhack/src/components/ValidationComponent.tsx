@@ -1,5 +1,4 @@
 import { useAccount, useEnsName } from "wagmi";
-import { SismoButton } from "./SismoButton";
 import {
   FormControl,
   FormControlLabel,
@@ -19,7 +18,7 @@ export function ValidationComponent() {
   const [mode, setMode] = React.useState(0);
   const [epoch, setEpoch] = React.useState("0");
   const [zkconnected, setZKConnect] = React.useState(false);
-  const [withdrawDepositMode, setWDMode] = React.useState(false);
+  const [withdrawDepositMode, setWDMode] = React.useState(true);
 
   const callValidation = (num: number, e: any) => {
     console.log("lmao", num);
@@ -45,8 +44,8 @@ export function ValidationComponent() {
       <div className="ZyCloone_SwitchBox">
         {/* <SwitchComponent parentFunction={(num: any) => callValidation(num)} /> */}
         <FormControl className="Checkboxes_AmountETH">
-          <FormLabel id="demo-controlled-radio-buttons-group">
-            Amount of eth
+          <FormLabel id="demo-controlled-radio-buttons-group Checkboxes_AmountETH_Label">
+            Amount of ETH
           </FormLabel>
           <RadioGroup
             row
@@ -59,12 +58,12 @@ export function ValidationComponent() {
             <FormControlLabel
               value="0.1"
               control={<Radio className="RadioButtonCustom" color="default" />}
-              label="0.1 eth"
+              label="0.1 ETH"
             />
             <FormControlLabel
               value="1"
               control={<Radio className="RadioButtonCustom" color="default" />}
-              label="1 eth"
+              label="1 ETH"
             />
           </RadioGroup>
         </FormControl>
@@ -104,8 +103,8 @@ export function ValidationComponent() {
       <div className="ZyCloone_SwitchBox">
         {/* <SwitchComponent parentFunction={(num: any) => callValidation(num)} /> */}
         <FormControl className="Checkboxes_AmountETH">
-          <FormLabel id="demo-controlled-radio-buttons-group">
-            Amount of eth
+          <FormLabel id="demo-controlled-radio-buttons-group Checkboxes_AmountETH_Label">
+            Amount of ETH
           </FormLabel>
           <RadioGroup
             row
@@ -118,12 +117,12 @@ export function ValidationComponent() {
             <FormControlLabel
               value="0.1"
               control={<Radio className="RadioButtonCustom" color="default" />}
-              label="0.1 eth"
+              label="0.1 ETH"
             />
             <FormControlLabel
               value="1"
               control={<Radio className="RadioButtonCustom" color="default" />}
-              label="1 eth"
+              label="1 ETH"
             />
           </RadioGroup>
         </FormControl>

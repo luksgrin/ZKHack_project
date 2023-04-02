@@ -36,19 +36,24 @@ function Page() {
       </div>
 
       <div className="flex-item-right">
-        <div className="ZyCloone_Container">
+        <div className="ZyCloone_Container mb-1">
           <Link href="https://app.sismo.io/">
             <div className="SVG_Container">
-              <svg
-                width="48"
-                height="48"
+              <img
+                className="ImgSismo"
+                src="https://www.gitbook.com/cdn-cgi/image/width=40,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F137516119-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FDbBfd4ahlvVGlRudj8NR%252Ficon%252FJNVZNmhURJYVGuBQRol5%252FNOTION%2520LOGO_280x280px.jpeg%3Falt%3Dmedia%26token%3D544fe01b-5e19-4e23-aca2-0deb1121db9f"
+              ></img>
+              {/* <svg
+                width="24"
+                height="24"
                 xmlns="http://www.w3.org/2000/svg"
                 fill-rule="evenodd"
                 clip-rule="evenodd"
+                line-stroke="2px"
               >
                 
                 <path d="M11.5 0c6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5-11.5-5.153-11.5-11.5 5.153-11.5 11.5-11.5zm0 1c5.795 0 10.5 4.705 10.5 10.5s-4.705 10.5-10.5 10.5-10.5-4.705-10.5-10.5 4.705-10.5 10.5-10.5zm.5 10h6v1h-6v6h-1v-6h-6v-1h6v-6h1v6z" />
-              </svg>
+              </svg> */}
             </div>
             <div className="Sismo_Text">Create Sismo Vault</div>
             <Image src={logo} alt="Second Image" width={60} height={60} />

@@ -170,6 +170,12 @@ p {
   margin: 1rem 2rem;
   letter-spacing: 2px;
   font-weight: 600;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zkConnectButton {
+  margin: 0 !important;
 }
 
 .ZyCloone_Grid {
@@ -207,7 +213,9 @@ p {
   
 }
 
-
+.flex-item-right > .ZyCloone_Container {
+  border-radius: 8px !important;
+}
 
 .SVG_Container {
   height: 50%;
@@ -217,9 +225,32 @@ p {
   display: flex;
 }
 
+.mb-1 {
+  margin-bottom: 1.5rem !important;
+}
+
+.ImgSismo {
+  max-width: 48px;
+  margin-bottom: 0.5rem;
+}
+
 .SVG_Container > svg {
-  height: 48px;
-  width: 48px;
+  /* height: 48px;
+  width: 48px; */
+  fill: var(--fake-white) !important;
+  font-weight: 600;
+}
+
+.css-hyxlzm {
+  color: var(--fake-white) !important;
+}
+
+.Checkboxes_AmountETH_Label {
+  margin-bottom: 0.5rem;
+}
+
+.Checkboxes_AmountETH {
+  padding-top: 1rem;
 }
 
 .bold {
@@ -250,6 +281,10 @@ a {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
+}
+
+.flex-item-right  .ZyCloone_Container {
+  /* cursor: pointer; */
 }
 
 @media screen and (max-width: 768px) {
@@ -402,12 +437,12 @@ a {
 
 .footer__item a {
   text-decoration: none;
-  color: #555;
+  color: #555 !important;
 }
 
 .footer__text {
   font-size: 0.8rem;
-  color: #888;
+  color: #888 !important;
   margin-right: 4rem;
 }
 
@@ -508,13 +543,13 @@ select::-ms-expand {
 
 .ZyCloone_ButtonContainerSismo {
   width: 100%;
-  padding: 0.5rem;
-  min-height: 3rem;
+  /* padding: 0.5rem; */
+  /* min-height: 3rem; */
   padding-bottom: 0;
   justify-content: center;
   align-items: center;
   display: flex;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
   height: 100%;
 }
 .ZyCloone_ButtonContainer {
@@ -639,6 +674,7 @@ select::-ms-expand {
   right: -2rem;
 }
 .button-charming {
+  min-width: 300px !important;
   height: 3rem;
   /* border-radius: 0.rem; */
   padding: 0 2rem;
@@ -722,6 +758,10 @@ h2 {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .button-charming {
+    min-width: 150px !important;
+  }
 }
 /* end cool css for buttons  */
 
@@ -752,6 +792,7 @@ h2 {
   border-color: #7fa9f5 !important;
   transition: background-color 2s ease-in;
   background-size: 400%;
+  border-bottom: 0;
   /* background: linear-gradient(
     -45deg,
     #7fa9f5 5%,
@@ -765,7 +806,7 @@ h2 {
   background-position: 90% 0;
 }
 
-.btn-change-mode: hover {
+.btn-change-mode:hover {
   background-position: 185% 50%;
   /* background: linear-gradient(
     -45deg,
