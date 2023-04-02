@@ -4,9 +4,19 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+:root,
+* {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+  --primary: #13203e !important;
+  --secondary: #f0d062 !important;
+  --tertiary: rgb(123, 90, 214) !important;
+  --fake-white: #f1f6ff !important;
+}
 /* HEADER  */
 .Header {
-  color: #f1f6ff !important;
+  color: var(--fake-white) !important;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -42,7 +52,7 @@ body {
   right: 0;
   margin: 10px;
   padding: 10px;
-  color: white;
+  color: var(--fake-white);
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -58,7 +68,7 @@ body {
   width: 200px;
   height: 50px;
   background-color: rgb(57, 57, 209);
-  color: #f1f6ff !important;
+  color: var(--fake-white) !important;
   border: none;
   border-radius: 5px;
   font-size: 18px;
@@ -88,7 +98,7 @@ body {
   align-items: center;
   margin: 20px 0;
   color: #f7f7f7 !important;
-  border: 1px solid white;
+  border: 1px solid var(--fake-white);
   border-radius: 10px;
 }
 
@@ -148,8 +158,79 @@ p {
   flex-direction: column;
 }
 
+.Trade_Destination_Container > div {
+  margin: 1rem 0 !important;
+}
+
+.ZyCloone_SwitchBox > .btn {
+  margin: 1rem 2rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.ZyCloone_Grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.flex-item-left {
+  flex: 2;
+}
+
+.flex-item-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.Sismo_Text {
+  font-size: 24px;
+}
+
+.ZyCloone_Container.flex-item-right {
+}
+.ZyCloone_Container.flex-item-right > a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none !important;
+  color: var(--fake-white) !important;
+}
+
+.SVG_Container {
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  display: flex;
+}
+
+.SVG_Container > svg {
+  height: 48px;
+  width: 48px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+a {
+  color: var(--fake-white) !important;
+  text-decoration: none !important;
+}
+
+/* Responsive layout - makes a one column layout (100%) instead of a two-column layout (50%) */
+@media (max-width: 800px) {
+  .flex-item-right,
+  .flex-item-left {
+    flex: 100%;
+  }
+}
+
 .ZyCloone_Container {
-  padding: 1rem;
+  padding: 2rem 1rem !important;
   border-radius: 8px;
   border: 1px solid #7fa9f5;
   max-width: 50%;
@@ -203,12 +284,12 @@ p {
 
 .Checkboxes_AmountETH,
 .RadioButtonCustom {
-  color: #f1f6ff;
+  color: var(--fake-white);
   /* // basically white but based on blue background */
 }
 
 .Trade_Destination_Container * {
-  color: #f1f6ff !important;
+  color: var(--fake-white) !important;
 }
 
 .Trade_Destination_Container * {
@@ -231,7 +312,7 @@ p {
 
   /* fixed menu */
   position: fixed;
-  height: 50px;
+  height: 30px;
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -264,7 +345,7 @@ p {
   );
   background-size: 400%;
   background-position: 90% 0;
-  color: #fff;
+  color: var(--fake-white);
   transition: background 0.8s;
   border: none;
 }
@@ -283,6 +364,7 @@ p {
   text-align: center;
   justify-content: center;
   min-width: 250px;
+  color: var(--fake-white) !important;
 }
 
 .Button_Test {
@@ -333,8 +415,8 @@ p {
 /* TERMS AND CONDITIONS */
 .TermsAndConditions {
   color: rgb(0, 0, 0);
-  background-color: white;
-  border: 1px solid white;
+  background-color: var(--fake-white);
+  border: 1px solid var(--fake-white);
   width: 90%;
   margin: auto;
   margin-bottom: 20px;
@@ -357,11 +439,6 @@ select {
   cursor: inherit;
   line-height: inherit;
 }
-:root {
-  --select-border: #777;
-  --select-focus: blue;
-  --select-arrow: var(--select-border);
-}
 
 select::-ms-expand {
   display: none;
@@ -377,7 +454,7 @@ select::-ms-expand {
   font-size: 1.25rem;
   cursor: pointer;
   line-height: 1.1;
-  background-color: #fff;
+  background-color: var(--fake-white);
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
   margin-left: auto;
   margin-right: auto;
@@ -419,6 +496,25 @@ select::-ms-expand {
   flex-direction: column;
 }
 
+.ZyCloone_ButtonContainerSismo {
+  width: 100%;
+  padding: 0.5rem;
+  min-height: 3rem;
+  padding-bottom: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 1rem 0;
+  height: 100%;
+}
+.ZyCloone_ButtonContainer {
+  width: 100%;
+  padding: 0.5rem;
+  min-height: 3rem;
+  padding-bottom: 0;
+  color: var(--fake-white);
+}
+
 .ZyCloone_Container {
   padding: 1rem;
   border-radius: 8px;
@@ -443,12 +539,12 @@ select::-ms-expand {
 
 .Checkboxes_AmountETH,
 .RadioButtonCustom {
-  color: #f1f6ff;
+  color: var(--fake-white);
   /* // basically white but based on blue background */
 }
 
 .Trade_Destination_Container * {
-  color: #f1f6ff !important;
+  color: var(--fake-white) !important;
 }
 
 .Trade_Destination_Container * {
@@ -456,4 +552,221 @@ select::-ms-expand {
 }
 .Trade_Destination_Container:hover * {
   border-color: #7fa9f5 !important;
+}
+
+/* cool css for buttons  */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: var(--white-hover) !important;
+}
+.btn-secondary {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-hover) !important;
+  border-color: var(--secondary-hover) !important;
+  color: var(--white-hover) !important;
+}
+.btn-tertiary {
+  background-color: var(--tertiary) !important;
+  border-color: var(--tertiary) !important;
+}
+.btn-tertiary:hover {
+  background-color: var(--tertiary-hover) !important;
+  border-color: var(--tertiary-hover) !important;
+  color: var(--white-hover) !important;
+}
+.btn-custom-arrow {
+  position: relative;
+  transition: background-color 300ms ease-out;
+  background: linear-gradient(
+    -45deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
+  background-size: 400%;
+  background-position: 90% 0;
+  color: var(--fake-white);
+  transition: background 0.8s;
+  border: none;
+}
+.btn-custom-arrow:hover {
+  background-position: 185% 50%;
+}
+.btn-custom-arrow span {
+  display: inline-block;
+  position: relative;
+  transition: all 300ms ease-out;
+  will-change: transform;
+}
+.btn-custom-arrow:hover span {
+  transform: translate3d(-1rem, 0, 0);
+}
+.btn-custom-arrow svg {
+  position: absolute;
+  width: 1.1em;
+  right: 0px;
+  right: 0rem;
+  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 300ms ease-out;
+  will-change: right, opacity;
+}
+.btn-custom-arrow svg * {
+  stroke-width: 5;
+  stroke-color: transparent;
+}
+.btn-custom-arrow:hover svg {
+  opacity: 1;
+  right: -2rem;
+}
+.button-charming {
+  height: 3rem;
+  /* border-radius: 0.rem; */
+  padding: 0 2rem;
+  background: linear-gradient(
+    -45deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
+  background-size: 400%;
+  background-position: 90% 0;
+  color: var(--fake-white);
+  transition: background 0.8s;
+  border: none;
+}
+.button-charming:hover {
+  background-position: 185% 50%;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  min-height: 3rem;
+  transition: 0.5s ease;
+  max-width: 350px;
+  text-align: center;
+  justify-content: center;
+  min-width: 250px;
+  cursor: pointer;
+  color: ;
+}
+.btn-ghost {
+  background-color: var(--secondary-light);
+  border-color: var(--secondary);
+}
+.btn-ghost:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+.btn-outline {
+  background-color: transparent !important;
+  border-color: #fff !important;
+}
+h2 {
+  color: var(--fake-white);
+}
+#how {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+#how > h2 {
+  margin-top: 2rem !important;
+}
+.second-box-content {
+  margin-bottom: 3rem;
+}
+.btn-what-is-a-transaction {
+  margin-top: 1.5rem;
+}
+.centered-buttons-small {
+  margin-left: auto;
+  margin-right: auto;
+}
+.button-first-section {
+  margin-left: initial;
+  margin-right: initial;
+}
+.btn-first-tx {
+  max-width: none;
+}
+@media (max-width: 768px) {
+  .btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* end cool css for buttons  */
+
+.ZyCloone_Container {
+  width: 100%;
+  padding: 0.5rem;
+  padding-bottom: 0;
+  margin: 0;
+  min-height: 9rem;
+  border-radius: 0 8px 8px 8px !important;
+}
+
+.ZyCloone_ValidationContainer {
+  width: 100%;
+  padding: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.btn-change-mode {
+  padding: 1rem 0.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 8px 8px 0 0 !important;
+  border-color: #7fa9f5 !important;
+  transition: background-color 2s ease-in;
+  background-size: 400%;
+  /* background: linear-gradient(
+    -45deg,
+    #7fa9f5 5%,
+    #13203e 5%,
+    #7fa9f5 95%
+  ) !important; */
+  background: linear-gradient(-45deg, #13203e 30%, #7fa9f5, #13203e 30%);
+  background-position: 185% 50%;
+
+  transition: all 0.5s ease-in;
+  background-position: 90% 0;
+}
+
+.btn-change-mode: hover {
+  background-position: 185% 50%;
+  /* background: linear-gradient(
+    -45deg,
+    #7fa9f5 5%,
+    #13203e 5%,
+    #7fa9f5 95%
+  ) !important; */
+}
+
+.mode-1 {
+  /* background: linear-gradient(-45deg, #13203e, #7fa9f5, #13203e, #7fa9f5,#13203e); */
+}
+.mode-2 {
+  /* background: linear-gradient(45deg, #7fa9f5, #13203e 8%); */
+
+  background-position: 90% 0;
 }
