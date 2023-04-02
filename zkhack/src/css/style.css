@@ -188,11 +188,21 @@ p {
   flex-wrap: wrap;
 }
 
+.ZyCloone_SwitchBox > p {
+  margin: 0;
+  margin-bottom: 4px;
+}
+
 .flex-item-left {
-  flex: 1 1;
+  flex: 2 1;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.flex-item-left > .ZyCloone_ButtonContainer,
+.flex-item-left > .ZyCloone_ValidationContainer {
+  margin-left: 25%;
 }
 
 .flex-item-right {
@@ -207,9 +217,7 @@ p {
 }
 
 .ZyCloone_Container.flex-item-right {
-
   background-image: url("/src/public/logo.png");
-
 }
 .ZyCloone_Container.flex-item-right > a {
   height: 100%;
@@ -217,11 +225,12 @@ p {
   flex-direction: column;
   text-decoration: none !important;
   color: var(--fake-white) !important;
-  
 }
 
 .flex-item-right > .ZyCloone_Container {
   border-radius: 8px !important;
+  max-width: 250px;
+  min-height: 180px;
 }
 
 .SVG_Container {
@@ -254,10 +263,12 @@ p {
 
 .Checkboxes_AmountETH_Label {
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
 .Checkboxes_AmountETH {
   padding-top: 1rem;
+  margin-top: 1rem;
 }
 
 .bold {
@@ -277,6 +288,10 @@ a {
   }
 }
 
+.ZyCloone_Container.mb-1 {
+  padding-top: 0.5rem !important;
+}
+
 .ZyCloone_Container {
   padding: 2rem 1rem !important;
   border-radius: 8px;
@@ -291,11 +306,15 @@ a {
   min-width: 30%;
 }
 
+.p-0 {
+  padding: 0 !important;
+}
+
 .Sismo_SmallText {
   margin-bottom: 0.5rem;
 }
 
-.flex-item-right  .ZyCloone_Container {
+.flex-item-right .ZyCloone_Container {
   /* cursor: pointer; */
 }
 
@@ -793,8 +812,6 @@ h2 {
   border-radius: 0 8px 8px 8px !important;
   background: url("/src/public/logo.png");
 }
-
-
 
 .ZyCloone_ValidationContainer {
   width: 100%;

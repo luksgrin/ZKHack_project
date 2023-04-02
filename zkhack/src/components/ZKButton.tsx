@@ -17,8 +17,8 @@ export const zkConnectConfig: ZkConnectClientConfig = {
         groupId: "0x1f24b274281ec802e53e1ded0dffc810",
         // Add your dev addresses here to become eligible in the DEV env
         data: [
-          "0x2bf7b04f143602692bbdc3ecbea68c2c65278eee",
-          "0x3f559454185098cb3a496f864a4bdd82b34c7fd1",
+          "0x7d65378d2F64d512227aF6641afEF3D470C472dC",
+          "0x5516AA2A7C33caA2B1B019795aBa0d5EECF56910",
         ],
       },
     ],

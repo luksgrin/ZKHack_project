@@ -7,11 +7,9 @@ import { SismoButton } from "../components/SismoButton";
 
 import { ValidationComponent } from "../components/ValidationComponent";
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
-import logo from '../public/logo.png';
-
-
+import logo from "../public/logo.png";
 
 function Page() {
   const { isConnected } = useAccount();
@@ -37,7 +35,7 @@ function Page() {
 
       <div className="flex-item-right">
         <div className="ZyCloone_Container mb-1">
-          <div className="SVG_Container Sismo_Text">Epoch Data</div>
+          <div className="SVG_Container Sismo_Text p-0">Epoch Data</div>
           <div className="Sismo_SmallText">
             <span className="bold">Current Epoch: </span>1
           </div>
@@ -68,12 +66,9 @@ function Page() {
               </svg> */}
             </div>
             <div className="Sismo_Text">Create Sismo Vault</div>
-            
           </Link>
         </div>
-        <div className="ZyCloone_Container">
-          {SismoBox()}
-        </div>
+        <div className="ZyCloone_Container">{SismoBox()}</div>
       </div>
 
       {/* <button

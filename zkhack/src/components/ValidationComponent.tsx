@@ -44,6 +44,8 @@ export function ValidationComponent() {
     return (
       <div className="ZyCloone_SwitchBox">
         {/* <SwitchComponent parentFunction={(num: any) => callValidation(num)} /> */}
+        <p>Deposit an amount of ETH to later withdraw. </p>
+        <p className="mb-1"> Maximum 1 by epoch</p>
         <FormControl className="Checkboxes_AmountETH">
           <FormLabel id="demo-controlled-radio-buttons-group Checkboxes_AmountETH_Label">
             Amount of ETH
@@ -79,21 +81,6 @@ export function ValidationComponent() {
   const WithdrawDeposit = () => {
     return (
       <div className="ZyCloone_ValidationContainer">
-        {/* <button
-          className="btn btn-ghost"
-          onClick={() => setWDMode(!withdrawDepositMode)}
-        >
-          {withdrawDepositMode ? (
-            <>
-              <span className="bold"> Deposit </span> / Withdraw
-            </>
-          ) : (
-            <>
-              Deposit / <span className="bold"> Withdraw </span>{" "}
-            </>
-          )}
-        </button> */}
-
         {withdrawDepositMode ? DepositBox() : WithdrawBox()}
       </div>
     );
@@ -103,6 +90,9 @@ export function ValidationComponent() {
     return (
       <div className="ZyCloone_SwitchBox">
         {/* <SwitchComponent parentFunction={(num: any) => callValidation(num)} /> */}
+        <p>Withdraw an amount of ETH if you are eligible for it. </p>
+        <p>{`It's needed Sismo verification of eligibility`}</p>
+        <p className="mb-1">Maximum 1 by epoch</p>
         <FormControl className="Checkboxes_AmountETH">
           <FormLabel id="demo-controlled-radio-buttons-group Checkboxes_AmountETH_Label">
             Amount of ETH
