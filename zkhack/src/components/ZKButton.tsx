@@ -14,7 +14,7 @@ export const zkConnectConfig: ZkConnectClientConfig = {
     enabled: process.env.NEXT_PUBLIC_ENV_NAME === "LOCAL" ? true : false,
     devGroups: [
       {
-        groupId: "0x42c768bb8ae79e4c5c05d3b51a4ec74a",
+        groupId: "0x1f24b274281ec802e53e1ded0dffc810",
         // Add your dev addresses here to become eligible in the DEV env
         data: [
           "0x2bf7b04f143602692bbdc3ecbea68c2c65278eee",
@@ -49,7 +49,7 @@ export default function Home() {
       config={zkConnectConfig}
       claimRequest={{
         //The merge contributor groupId
-        groupId: "0x42c768bb8ae79e4c5c05d3b51a4ec74a",
+        groupId: "0x1f24b274281ec802e53e1ded0dffc810",
       }}
       authRequest={{ authType: AuthType.ANON }}
       onResponse={(response) => {
