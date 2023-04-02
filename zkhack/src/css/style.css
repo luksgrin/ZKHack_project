@@ -194,6 +194,9 @@ p {
 }
 
 .ZyCloone_Container.flex-item-right {
+
+  background-image: url("/src/public/logo.png");
+
 }
 .ZyCloone_Container.flex-item-right > a {
   height: 100%;
@@ -201,7 +204,10 @@ p {
   flex-direction: column;
   text-decoration: none !important;
   color: var(--fake-white) !important;
+  
 }
+
+
 
 .SVG_Container {
   height: 50%;
@@ -726,7 +732,10 @@ h2 {
   margin: 0;
   min-height: 9rem;
   border-radius: 0 8px 8px 8px !important;
+  background: url("/src/public/logo.png");
 }
+
+
 
 .ZyCloone_ValidationContainer {
   width: 100%;
