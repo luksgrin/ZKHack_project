@@ -13,6 +13,12 @@
 
 *This project was built during the [ZKHack Lisbon Hackaton](https://www.zklisbon.com/) held in Lisbon from March 31 to April 2, 2023.*
 
+Find the deployed contract and app id [here] (https://github.com/luksgrin/ZKHack_project/blob/main/backend/zykloon_contracts/script/defineGroupID.s.sol#L7) or at
+```solidity
+bytes16 immutable GROUP_ID = 0x1f24b274281ec802e53e1ded0dffc810;
+address immutable MY_CONTRACT = 0x0509eE017540EC6156978dfa843B0615c881402D;
+```
+
 ## **The problem**
 
 The transparency of the blockchain is a double-edged sword. On the one hand, it allows us to verify the integrity of the transactions and to prevent fraud. On the other hand, it allows anyone to monitor our transactions and to know our identity.
