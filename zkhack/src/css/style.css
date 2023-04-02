@@ -60,6 +60,9 @@ body {
   cursor: pointer;
 }
 
+.ZyCloone_Container {
+  color: var(--fake-white) !important;
+}
 /* LAUNCH APP BUTTON */
 .LaunchAppBtn {
   display: flex;
@@ -186,7 +189,10 @@ p {
 }
 
 .flex-item-left {
-  flex: 2;
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .flex-item-right {
@@ -277,6 +283,11 @@ a {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
+  min-width: 30%;
+}
+
+.Sismo_SmallText {
+  margin-bottom: 0.5rem;
 }
 
 .flex-item-right > .ZyCloone_Container {
@@ -757,6 +768,13 @@ h2 {
 
   .button-charming {
     min-width: 150px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .button-charming {
+    min-width: 300px !important;
+    /* max-width: 250px !important; */
   }
 }
 /* end cool css for buttons  */

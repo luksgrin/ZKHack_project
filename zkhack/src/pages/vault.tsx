@@ -34,6 +34,18 @@ function Page() {
 
       <div className="flex-item-right">
         <div className="ZyCloone_Container mb-1">
+          <div className="SVG_Container Sismo_Text">Epoch Data</div>
+          <div className="Sismo_SmallText">
+            <span className="bold">Current Epoch: </span>1
+          </div>
+          <div className="Sismo_SmallText">
+            <span className="bold">Number of Deposits: </span>42
+          </div>
+          <div className="Sismo_SmallText mb-1">
+            <span className="bold">Next Epoch day:</span> 09/04/2023
+          </div>
+        </div>
+        <div className="ZyCloone_Container mb-1">
           <Link href="https://app.sismo.io/">
             <div className="SVG_Container">
               <img

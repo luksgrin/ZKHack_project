@@ -18,7 +18,7 @@ export function ValidationComponent() {
   const [mode, setMode] = React.useState(0);
   const [epoch, setEpoch] = React.useState("0");
   const [zkconnected, setZKConnect] = React.useState(false);
-  const [withdrawDepositMode, setWDMode] = React.useState(true);
+  const [withdrawDepositMode, setWDMode] = React.useState(false);
 
   const callValidation = (num: number, e: any) => {
     console.log("lmao", num);
@@ -177,11 +177,11 @@ export function ValidationComponent() {
         >
           {withdrawDepositMode ? (
             <>
-              <span className="bold"> Deposit </span> &nbsp; / Withdraw
+              Deposit / &nbsp; <span className="bold"> Withdraw </span>{" "}
             </>
           ) : (
             <>
-              Deposit / &nbsp; <span className="bold"> Withdraw </span>{" "}
+              <span className="bold"> Deposit </span> &nbsp; / Withdraw
             </>
           )}
         </button>
