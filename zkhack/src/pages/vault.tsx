@@ -56,7 +56,7 @@ function Page() {
               </svg> */}
             </div>
             <div className="Sismo_Text">Create Sismo Vault</div>
-            <Image src={logo} alt="Second Image" width={60} height={60} />
+            
           </Link>
         </div>
         <div className="ZyCloone_Container">
